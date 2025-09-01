@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Research Support Interactive Sitemap</title>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<style>
+.node circle { fill: #999; cursor: pointer; }
+.node text { font: 12px sans-serif; }
+.link { fill: none; stroke: #555; stroke-opacity: 0.4; stroke-width: 1.5px; }
+</style>
+</head>
+<body>
+<h2>Research Support – Interactive Sitemap</h2>
+<svg id="tree"></svg>
+
+<script>
+// ==== JSON DATA GENERATED FROM EXCEL ====
+var data = {
+  "name": "Research support",
+  "url": "https://leeds365.sharepoint.com/sites/Research-Support",
+  "children": [
+    {
+      "name": "After Submission",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/After-submission.aspx"
+    },
+    {
+      "name": "Amendments",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Amendments.aspx"
+    },
+    {
+      "name": "Applicant And Team Capability To Deliver",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Applicant-and-Team-Capability-to-Deliver.aspx"
+    },
+    {
+      "name": "Applicant And Team Capability To Deliver(1)",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Applicant-and-Team-Capability-to-Deliver(1).aspx"
+    },
+    {
+      "name": "Applying For Funding(1)",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Applying-for-Funding(1).aspx"
+    },
+    {
+      "name": "Approval Process",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Approval-Process.aspx"
+    },
+    {
+      "name": "Award Set Up",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Award-set-up.aspx"
+    },
+    {
+      "name": "Awards Funded By Innovate Uk Via The Ifs",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Awards-funded-by-Innovate-UK-via-the-IFS.aspx"
+    },
+    {
+      "name": "Awards Funded By Ukri Via Je S",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Awards-funded-by-UKRI-via-Je-S.aspx"
+    },
+    {
+      "name": "Bbsrc Alert Mid Range Equipment",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/BBSRC-Alert-Mid-Range-Equipment.aspx"
+    },
+    {
+      "name": "Bbsrc Fellowship",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/BBSRC-Fellowship.aspx"
+    },
+    {
+      "name": "Call Schedule & Guidance",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Call-Schedule-&-Guidance.aspx"
+    },
+    {
+      "name": "Central Institutional Match Funding For Grant Applications",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Central-institutional-match-funding-for-grant-applications.aspx"
+    },
+    {
+      "name": "Centres And Institutes",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Centres-and-Institutes.aspx"
+    },
+    {
+      "name": "Centres And Institutes Support For Interdisciplinary Working",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Centres-and-Institutes-support-for-interdisciplinary-working.aspx"
+    },
+    {
+      "name": "Challenge Theme",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Challenge theme.aspx"
+    },
+    {
+      "name": "Checking The Funder Remit",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Checking-the-funder-remit.aspx"
+    },
+    {
+      "name": "Cheney Biomedical Accelerator",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Cheney-Biomedical-Accelerator .aspx"
+    },
+    {
+      "name": "Cheney Fellowships",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Cheney-Fellowships.aspx"
+    },
+    {
+      "name": "Cheney Sandpit Event",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Cheney-sandpit-event.aspx"
+    },
+    {
+      "name": "Closures",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Closures.aspx"
+    },
+    {
+      "name": "Collaborative Funding  Global Challenges & Eu Missions",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Collaborative-funding--global-challenges-&-EU-missions.aspx"
+    },
+    {
+      "name": "Conflict Of Interest",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Conflict-of-Interest.aspx"
+    },
+    {
+      "name": "Conflicts Of Interest",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Conflicts-of-interest.aspx"
+    },
+    {
+      "name": "Consortium And Partnership Agreements",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Consortium-and-partnership-agreements.aspx"
+    },
+    {
+      "name": "Contracts For Research",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Contracts-for-research.aspx"
+    },
+    {
+      "name": "Contracts Team",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Contracts-team.aspx"
+    },
+    {
+      "name": "Corporate Relations Team",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Corporate-relations-team.aspx"
+    },
+    {
+      "name": "Costing And Pricing",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Costing-and-Pricing.aspx"
+    },
+    {
+      "name": "Creating Opportunities For Transdisciplinary Research Collaborations",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Creating-opportunities-for-transdisciplinary-research-collaborations.aspx"
+    },
+    {
+      "name": "Curate",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Curate.aspx"
+    },
+    {
+      "name": "Department Landing Page Template",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Templates/Department-Landing-Page-Template.aspx"
+    },
+    {
+      "name": "Developing Your Proposal",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Developing-your-proposal.aspx"
+    },
+    {
+      "name": "Edi And Internal Demand Management",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EDI-and-internal-demand-management.aspx"
+    },
+    {
+      "name": "Eligibility",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Eligibility.aspx"
+    },
+    {
+      "name": "Eligibility For",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Eligibility-for.aspx"
+    },
+    {
+      "name": "Eligibility Of Costs",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Eligibility-of-costs.aspx"
+    },
+    {
+      "name": "Eligible Costs",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Eligible-costs.aspx"
+    },
+    {
+      "name": "Email Networks",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Email-networks.aspx"
+    },
+    {
+      "name": "Epsrc Fellowships  2024 Internal Process And Resources",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-Fellowships--2024-internal-process-and-resources.aspx"
+    },
+    {
+      "name": "Epsrc Fellowships  Getting Feedback On Your Developing Application",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-Fellowships--Getting-feedback-on-your-developing-application.aspx"
+    },
+    {
+      "name": "Epsrc Fellowships  Is A Fellowship The Right Approach",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-Fellowships--Is-a-fellowship-the-right-approach-.aspx"
+    },
+    {
+      "name": "Epsrc Fellowships  Preparing For Your Interview",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-Fellowships--preparing-for-your-interview.aspx"
+    },
+    {
+      "name": "Epsrc Fellowships  Submitting An Expression Of Interest",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-fellowships--Submitting-an-expression-of-interest.aspx"
+    },
+    {
+      "name": "Epsrc Fellowships  Submitting Your Application",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-Fellowships--Submitting-your-application.aspx"
+    },
+    {
+      "name": "Epsrc Fellowships  Writing Your Application",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-fellowships--Writing-your-application.aspx"
+    },
+    {
+      "name": "Epsrc Fellowships  Writing Your Pi Response To Reviewer Comments",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-Fellowships--Writing-your-PI-response-to-reviewer-comments.aspx"
+    },
+    {
+      "name": "Epsrc Fellowships Checklist(1)",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-Fellowships-checklist(1).aspx"
+    },
+    {
+      "name": "Epsrc New Investigator Award",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-New-Investigator-Award.aspx"
+    },
+    {
+      "name": "Epsrc New Investigator Awards",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-New-Investigator-Awards.aspx"
+    },
+    {
+      "name": "Epsrc Standard Grant (Responsive Mode)",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-Standard-Grant-(Responsive-Mode).aspx"
+    },
+    {
+      "name": "Epsrc Standard Grants   Useful Resources",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-Standard-Grants---useful-resources.aspx"
+    },
+    {
+      "name": "Epsrc Standard Grants Quick Start Guide",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-Standard-Grants-quick-start-guide.aspx"
+    },
+    {
+      "name": "Epsrc Standard Grants Quick Start Guide(1)",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-Standard-Grants-quick-start-guide(1).aspx"
+    },
+    {
+      "name": "Epsrc Strategic Infrastructure",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-Strategic-Infrastructure.aspx"
+    },
+    {
+      "name": "Equipment Funding",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Equipment-funding.aspx"
+    },
+    {
+      "name": "Esrc Centres Call",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/ESRC-Centres-call.aspx"
+    },
+    {
+      "name": "Esrc Large Grants",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/ESRC-Large-Grants.aspx"
+    },
+    {
+      "name": "Esrc New Investigator Grants",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/ESRC-New-investigator-grants.aspx"
+    },
+    {
+      "name": "Esrc Research Grants (Open Call",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/ESRC-research-grants-(open-call.aspx"
+    },
+    {
+      "name": "Ethics And Responsible Research And Innovation (Rri)",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Ethics-and-Responsible-Research-and-Innovation-(RRI).aspx"
+    },
+    {
+      "name": "Ethics And Responsible Research And Innovation (Rri)(1)",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Ethics-and-Responsible-Research-and-Innovation-(RRI)(1).aspx"
+    },
+    {
+      "name": "Ethics Review",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Ethics-review.aspx"
+    },
+    {
+      "name": "Eu Funding",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EU-funding.aspx"
+    },
+    {
+      "name": "Eu Funding Team",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EU-funding-team.aspx"
+    },
+    {
+      "name": "Eu Post Award Support",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EU-post-award-support.aspx"
+    },
+    {
+      "name": "Eu Pre Award Support",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EU-pre-award-support.aspx"
+    },
+    {
+      "name": "European Research Council",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/European-Research-Council.aspx"
+    },
+    {
+      "name": "Faculty Of Arts, Humanities And Cultures",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Faculty-of-Arts,-Humanities-and-Cultures.aspx"
+    },
+    {
+      "name": "Faculty Of Biological Sciences",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Faculty-of-Biological-Sciences.aspx"
+    },
+    {
+      "name": "Faculty Of Engineering And Physical Sciences",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Faculty-of-Engineering-and-Physical-Sciences.aspx"
+    },
+    {
+      "name": "Faculty Research & Innovation Teams",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Faculty-research-&-innovation-teams.aspx"
+    },
+    {
+      "name": "Finding Partners",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Finding-partners.aspx"
+    },
+    {
+      "name": "Funders",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Funders.aspx"
+    },
+    {
+      "name": "Funding Opportunities",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Funding-opportunities.aspx"
+    },
+    {
+      "name": "Funding To Attend Saci45",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Funding-to-attend-SACI45.aspx"
+    },
+    {
+      "name": "Gender Equality Plan (Gep) In Horizon Europe",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Gender-Equality-Plan-(GEP)-in-Horizon-Europe.aspx"
+    },
+    {
+      "name": "General Content Template",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Templates/General-Content-Template.aspx"
+    },
+    {
+      "name": "Global Academy",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Global-Academy.aspx"
+    },
+    {
+      "name": "Global Academy Crucible Programme 2024 5",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Global-Academy-Crucible-Programme-2024-5.aspx"
+    },
+    {
+      "name": "Grant Agreement Preparation Process",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Grant-agreement-preparation-process.aspx"
+    },
+    {
+      "name": "Headlines Themes",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Headlines-themes.aspx"
+    },
+    {
+      "name": "Home",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Home.aspx"
+    },
+    {
+      "name": "Horizon 2020 Grant Management",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Horizon-2020-Grant-management.aspx"
+    },
+    {
+      "name": "Horizon Annual Report 2024",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Horizon annual report 2024.aspx"
+    },
+    {
+      "name": "Horizon Europe Grant Management",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Horizon-Europe-Grant-Management.aspx"
+    },
+    {
+      "name": "Horizons Institute",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Horizons-Institute.aspx"
+    },
+    {
+      "name": "Horizons Institute  Meet Our People",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Horizons-Institute--meet-our-people.aspx"
+    },
+    {
+      "name": "Horizons Institute Funding Application Guidance",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Horizons-Institute-Funding-Application-Guidance.aspx"
+    },
+    {
+      "name": "How Our Worldwide Universities Network (Wun) Membership Benefits Colleagues",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/How-our-Worldwide-Universities-Network-(WUN)-membership-benefits-colleagues.aspx"
+    },
+    {
+      "name": "Iaa Case Studies",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/IAA-Case-Studies.aspx"
+    },
+    {
+      "name": "Identifying The Right Eu Funding Scheme",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Identifying-the-right-EU-funding-scheme.aspx"
+    },
+    {
+      "name": "Impact Acceleration Funding",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Impact-Acceleration-Funding.aspx"
+    },
+    {
+      "name": "Impact Acceleration Joint Showcase",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Impact-Acceleration-Joint-Showcase.aspx"
+    },
+    {
+      "name": "Innovate Uk",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Innovate-UK.aspx"
+    },
+    {
+      "name": "Innovation And Business Development   Contacts",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Innovation-and-Business-Development---Contacts.aspx"
+    },
+    {
+      "name": "Innovation Funding",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Innovation-funding.aspx"
+    },
+    {
+      "name": "Innovative Phd Projects Showcase Power Of Philanthropy",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Innovative-PhD-projects-showcase-power-of-philanthropy.aspx"
+    },
+    {
+      "name": "Institutional Letters Of Support",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Institutional-letters-of-support.aspx"
+    },
+    {
+      "name": "Institutional Translational Funding",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Institutional-Translational-Funding.aspx"
+    },
+    {
+      "name": "Institutionally Coordinated Opportunities",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Institutionally-coordinated-opportunities.aspx"
+    },
+    {
+      "name": "Interdisciplinary Institutes And Centres",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Interdisciplinary-institutes-and-centres.aspx"
+    },
+    {
+      "name": "International Funding",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/International-funding.aspx"
+    },
+    {
+      "name": "International Funding   Us Government",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/International-funding---US-Government.aspx"
+    },
+    {
+      "name": "Interviews",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Interviews.aspx"
+    },
+    {
+      "name": "Key Questions For Researchers",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Key-questions-for-researchers.aspx"
+    },
+    {
+      "name": "Knowledge Exchange Training",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Knowledge-Exchange-training.aspx"
+    },
+    {
+      "name": "Knowledge Transfer Partnerships (Ktps)",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Knowledge-Transfer-Partnerships-(KTPs).aspx"
+    },
+    {
+      "name": "Kristal Phase 2",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Kristal-Phase-2.aspx"
+    },
+    {
+      "name": "Leeds Featured In Uk Academic Spinouts Table",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Leeds-featured-in-UK-academic-spinouts-table.aspx"
+    },
+    {
+      "name": "Leeds University Business School",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Leeds-University-Business-School.aspx"
+    },
+    {
+      "name": "Leverhulme Doctoral Scholarships",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Leverhulme-Doctoral-Scholarships.aspx"
+    },
+    {
+      "name": "Leverhulme Research Centres 2024",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Leverhulme-Research-Centres-2024.aspx"
+    },
+    {
+      "name": "Leverhulme Research Leadership Awards",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Leverhulme-Research-Leadership-Awards.aspx"
+    },
+    {
+      "name": "Lida  Growing Multi Disciplinary Research For The Future",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/LIDA--Growing-multi-disciplinary-research-for-the-future.aspx"
+    },
+    {
+      "name": "Major Investment To Support The Next Generation Of Researchers",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Major-investment-to-support-the-next-generation-of-researchers.aspx"
+    },
+    {
+      "name": "Managing Awards",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Managing-awards.aspx"
+    },
+    {
+      "name": "Marie Curie   Doctoral Networks (Dns)",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Marie-Curie---Doctoral-Networks-(DNs).aspx"
+    },
+    {
+      "name": "Marie Curie Postdoctoral Fellowships",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Marie-Curie Postdoctoral fellowships.aspx"
+    },
+    {
+      "name": "Marie Sk\u0142odowska Curie Actions",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Marie-Sk\u0142odowska-Curie-Actions.aspx"
+    },
+    {
+      "name": "Material Transfer Agreements",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Material-transfer-agreements.aspx"
+    },
+    {
+      "name": "Meet The Uk Research Development Team",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Meet-the-UK-Research-Development-Team.aspx"
+    },
+    {
+      "name": "Mrc Mid Range Equipment Call Round 4   Internal Process",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/MRC-Mid-Range-Equipment-Call-Round-4---Internal-Process.aspx"
+    },
+    {
+      "name": "Mrc Transition To Independence Awards",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/MRC-Transition-to-Independence-Awards.aspx"
+    },
+    {
+      "name": "Nerc Discovery Science",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/NERC-Discovery-Science.aspx"
+    },
+    {
+      "name": "Nerc Independent Research Fellowships",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/NERC-Independent-Research-Fellowships.aspx"
+    },
+    {
+      "name": "Nerc Peer Review   Frequently Asked Questions",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/NERC-peer-review---frequently-asked-questions.aspx"
+    },
+    {
+      "name": "Networking & External Engagement",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Networking-&-External-Engagement.aspx"
+    },
+    {
+      "name": "New Biomedical Hub To Understand And Address Human Diseases",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/New-biomedical-hub-to-understand-and-address-human-diseases.aspx"
+    },
+    {
+      "name": "New Challenge Theme Networks Announced For 2024 25",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/New-challenge-theme-networks-announced-for-2024-25.aspx"
+    },
+    {
+      "name": "New Networks Addressing Key Scientific And Societal Challenges",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/New-networks-addressing-key-scientific-and-societal-challenges.aspx"
+    },
+    {
+      "name": "New Spin Out Company Incentives Adopted By The University",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/New-spin-out-company-incentives-adopted-by-the-University.aspx"
+    },
+    {
+      "name": "News Page Template",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Templates/News-Page-Template.aspx"
+    },
+    {
+      "name": "Nih Financial Conflict Of Interest Guidance",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/NIH-financial-conflict-of-interest-guidance.aspx"
+    },
+    {
+      "name": "Nihr Postdoctoral Fellowships & Doctoral Fellowships",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/NIHR-Postdoctoral-Fellowships-&-Doctoral-Fellowships.aspx"
+    },
+    {
+      "name": "Nihr Research Professorships And Global Research Professorships",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/NIHR-Research-Professorships-and-Global-Research-Professorships.aspx"
+    },
+    {
+      "name": "Non Disclosure Agreements",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Non-disclosure-agreements.aspx"
+    },
+    {
+      "name": "Oda",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/ODA.aspx"
+    },
+    {
+      "name": "Online Ris Contracts Agreements (Orca)",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Online-RIS-Contracts-Agreements-(ORCA).aspx"
+    },
+    {
+      "name": "Online Ris Contracts Agreements (Orca) Case Study",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Online-RIS-Contracts-Agreements-(ORCA)-Case-Study.aspx"
+    },
+    {
+      "name": "Open Science In Horizon Europe",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Open-Science-in-Horizon-Europe.aspx"
+    },
+    {
+      "name": "Other Eu Programmes",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Other-EU-programmes.aspx"
+    },
+    {
+      "name": "Other Innovation Funding",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Other-Innovation-funding.aspx"
+    },
+    {
+      "name": "Page(2)",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Page(2).aspx"
+    },
+    {
+      "name": "Page(3)",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Page(3).aspx"
+    },
+    {
+      "name": "Partnerships For Societal Impact",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Partnerships-for-Societal-Impact.aspx"
+    },
+    {
+      "name": "Peer Review",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Peer-review.aspx"
+    },
+    {
+      "name": "Phd Programme",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/PhD-programme.aspx"
+    },
+    {
+      "name": "Pivot Rp",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Pivot-RP.aspx"
+    },
+    {
+      "name": "Policy Page Template",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Templates/Policy-Page-Template.aspx"
+    },
+    {
+      "name": "Post Brexit Environment And Uk Association",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Post-Brexit-Environment-and-UK-Association.aspx"
+    },
+    {
+      "name": "Preparing An Eu Proposal",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Preparing-an-EU-proposal.aspx"
+    },
+    {
+      "name": "Pump Priming",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Pump-priming.aspx"
+    },
+    {
+      "name": "Re Engaging With Horizon Europe",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Re-engaging-with-Horizon-Europe.aspx"
+    },
+    {
+      "name": "Reporting Requirements",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Reporting-requirements.aspx"
+    },
+    {
+      "name": "Research And Innovation Development Managers And Officers",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Research-and-Innovation-Development-Managers-and-Officers.aspx"
+    },
+    {
+      "name": "Research Culture",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Research-culture.aspx"
+    },
+    {
+      "name": "Research Development Team",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Research-development-team.aspx"
+    },
+    {
+      "name": "Research Led Action On Climate",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Research-led-action-on-climate.aspx"
+    },
+    {
+      "name": "Research Professional",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Research-Professional.aspx"
+    },
+    {
+      "name": "Research Support",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Research-support.aspx"
+    },
+    {
+      "name": "Research Translation And Industry Linked Funding",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Research translation and industry linked funding.aspx"
+    },
+    {
+      "name": "Resources And Cost Justification",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Resources-and-Cost-Justification.aspx"
+    },
+    {
+      "name": "Resources And Tips",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Resources-and-tips.aspx"
+    },
+    {
+      "name": "Resources For Researchers Using The New Ukri Funding Service",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Resources-for-Researchers-Using-the-New-UKRI-Funding-Service.aspx"
+    },
+    {
+      "name": "Resources For Researchers Using The New Ukri Funding Service(2)",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Resources-for-Researchers-Using-the-New-UKRI-Funding-Service(2).aspx"
+    },
+    {
+      "name": "Responding To Tenders",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Responding-to-tenders.aspx"
+    },
+    {
+      "name": "Response To Reviewers",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Response-to-reviewers.aspx"
+    },
+    {
+      "name": "Royal Society Faraday Discovery Fellowships",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Royal-Society-Faraday-Discovery-Fellowships.aspx"
+    },
+    {
+      "name": "Royal Society University Research Fellowship",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Royal-Society-University-Research-Fellowship.aspx"
+    },
+    {
+      "name": "Signing An Eu Grant Agreement",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Signing-an-EU-grant-agreement.aspx"
+    },
+    {
+      "name": "Standard Research",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Standard-research.aspx"
+    },
+    {
+      "name": "Submission Checklist",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Submission-checklist.aspx"
+    },
+    {
+      "name": "Submission Systems",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Submission-Systems.aspx"
+    },
+    {
+      "name": "Submitting An Eu Proposal",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Submitting-an-EU-proposal.aspx"
+    },
+    {
+      "name": "Success@Leeds",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Success@Leeds.aspx"
+    },
+    {
+      "name": "Support And Processes For Ahrc Grants In Responsive Mode",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Support-and-Processes-for-AHRC-grants-in-responsive-mode.aspx"
+    },
+    {
+      "name": "Templates",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Templates"
+    },
+    {
+      "name": "Three Years Of The Horizons Institute",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Three-years-of-the-Horizons-Institute-.aspx"
+    },
+    {
+      "name": "Training",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Training.aspx"
+    },
+    {
+      "name": "Translational Activities Supported",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Translational-Activities-Supported.aspx"
+    },
+    {
+      "name": "Translational Research 101",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Translational-Research-101.aspx"
+    },
+    {
+      "name": "Two Years Of Horizons  Developing And Adapting Through Collaboration",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Two-years-of-Horizons--Developing-and-adapting-through-collaboration.aspx"
+    },
+    {
+      "name": "Uk Funding Service   General Guidance And Useful Links",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/UK-Funding-Service---General-Guidance-and-Useful-Links.aspx"
+    },
+    {
+      "name": "Uk Innovation Strategy",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/UK-Innovation-Strategy.aspx"
+    },
+    {
+      "name": "Ukri Future Leader Fellowships (Flfs)",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/UKRI-Future-Leader-Fellowships-(FLFs).aspx"
+    },
+    {
+      "name": "Ukri Future Leaders Fellowships Round 7  Internal Selection Process",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/UKRI-Future-Leaders-Fellowships-round-7--internal-selection-process.aspx"
+    },
+    {
+      "name": "Un Global Compact",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/UN-Global-Compact.aspx"
+    },
+    {
+      "name": "University Of Leeds   Uk Funder Strategy Groups",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/University-of-Leeds---UK-Funder-Strategy-Groups.aspx"
+    },
+    {
+      "name": "University Welcomes Return To Horizon Science Programme",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/University-welcomes-return-to-Horizon-science-programme.aspx"
+    },
+    {
+      "name": "University'S Investment Partner Northern Gritstone Raises \u00a350 Million",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/University's-investment-partner-Northern-Gritstone-raises-\u00a350-million.aspx"
+    },
+    {
+      "name": "Vision And Approach",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Vision-and-Approach.aspx"
+    },
+    {
+      "name": "Vision And Approach(1)",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Vision-and-Approach(1).aspx"
+    },
+    {
+      "name": "Wellcome Career Development Awards",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Wellcome-Career-Development-Awards.aspx"
+    },
+    {
+      "name": "Wellcome Early Career Awards",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Wellcome-Early-Career-Awards.aspx"
+    },
+    {
+      "name": "What If You'Re Not Successful",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/What-if-you're-not-successful-.aspx"
+    },
+    {
+      "name": "Who'S Who Template",
+      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Templates/Who's-Who-Template.aspx"
+    }
+  ]
+};
+
+// ==== TREE CONFIGURATION ====
+const width = 1200, dx = 20, dy = 200;
+const tree = d3.tree().nodeSize([dx, dy]);
+const diagonal = d3.linkHorizontal().x(d => d.y).y(d => d.x);
+
+const root = d3.hierarchy(data);
+root.x0 = 0;
+root.y0 = 0;
+if(root.children) root.children.forEach(collapse);
+
+const svg = d3.select("#tree")
+  .attr("width", width)
+  .attr("height", 800)
+  .attr("viewBox", [-dy/3, -dx, width, 800])
+  .style("font", "12px sans-serif");
+
+const gLink = svg.append("g")
+  .attr("fill", "none")
+  .attr("stroke", "#555")
+  .attr("stroke-opacity", 0.4)
+  .attr("stroke-width", 1.5);
+
+const gNode = svg.append("g")
+  .attr("cursor", "pointer")
+  .attr("pointer-events", "all");
+
+let i = 0;
+update(root);
+
+function update(source) {
+  const nodes = root.descendants().reverse();
+  const links = root.links();
+
+  tree(root);
+
+  let node = gNode.selectAll("g")
+    .data(nodes, d => d.id || (d.id = ++i));
+
+  const nodeEnter = node.enter().append("g")
+    .attr("transform", d => `translate(${source.y0},${source.x0})`)
+    .on("click", (event, d) => {
+      if (d.children) {
+        d._children = d.children;
+        d.children = null;
+      } else {
+        d.children = d._children;
+        d._children = null;
+      }
+      update(d);
+      if (d.data.url) window.open(d.data.url, "_blank");
+    });
+
+  nodeEnter.append("circle")
+    .attr("r", 4)
+    .attr("fill", d => d._children ? "#555" : "#999");
+
+  nodeEnter.append("text")
+    .attr("dy", "0.31em")
+    .attr("x", d => d._children ? -8 : 8)
+    .attr("text-anchor", d => d._children ? "end" : "start")
+    .text(d => d.data.name);
+
+  node.merge(nodeEnter).transition().duration(500)
+    .attr("transform", d => `translate(${d.y},${d.x})`);
+
+  node.exit().transition().duration(500)
+    .attr("transform", d => `translate(${source.y},${source.x})`)
+    .remove();
+
+  const link = gLink.selectAll("path")
+    .data(links, d => d.target.id);
+
+  link.enter().append("path")
+    .merge(link)
+    .transition()
+    .duration(500)
+    .attr("d", diagonal);
+
+  link.exit().transition().duration(500).remove();
+
+  root.eachBefore(d => {
+    d.x0 = d.x;
+    d.y0 = d.y;
+  });
+}
+
+function collapse(d) {
+  if (d.children) {
+    d._children = d.children;
+    d._children.forEach(collapse);
+    d.children = null;
+  }
+}
+</script>
+</body>
+</html>
